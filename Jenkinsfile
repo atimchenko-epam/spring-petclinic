@@ -2,12 +2,30 @@ pipeline {
   agent any
 
     stages {
-      stage('Print Hello'){
+      stage('Validate'){
         steps {
-          echo 'Hello from here'
+          sh 'mvn verify'
+        }
+      }
+
+      stage('Compile'){
+        steps{
+          sh 'mvn compile'
+        }
+      }
+
+      stage('Package'){
+        steps{
+          sh 'mvn package'
+        }
+      }
+
+      stage('List all'){
+        steps{
           sh 'tree'
         }
       }
+
     }
 
 }
