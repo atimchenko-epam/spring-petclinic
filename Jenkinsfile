@@ -3,7 +3,9 @@ pipeline {
 
     stages {
       stage('Print Hello'){
-        echo 'Hello from here'
+        steps {
+          echo 'Hello from here'
+        }
       }
     }
 
