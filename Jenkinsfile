@@ -23,7 +23,7 @@ pipeline {
           docker {
             image 'openjdk:8'
             reuseNode true
-            args '-v /var/lib/jenkins/workspace/Pet-testing/target:/opt'
+            args '-v /var/lib/jenkins/workspace/Pet-testing/target:/opt -p 8080:8080'
           }
         }
         steps {
