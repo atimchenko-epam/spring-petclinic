@@ -7,30 +7,27 @@ pipeline {
     }
 
     stages {
-      stage('Validate'){
+      stage('Install'){
         steps {
-          sh 'mvn verify'
+          sh 'mvn install'
         }
       }
-
-      stage('Compile'){
-        steps{
-          sh 'mvn compile'
+      stage('LS'){
+        steps {
+          sh 'ls'
         }
       }
-
-      stage('Package'){
-        steps{
-          sh 'mvn package'
+      stage('Docker') {
+        agent {
+          docker {
+            image 'openjdk:8'
+            reuseNode true
+            args '-v /var/lib/jenkins/workspace/Pet-testing/target:/opt'
+          }
+        }
+        steps {
+          sh 'java -version'
         }
       }
-
-      stage('List all'){
-        steps{
-          sh 'tree'
-        }
-      }
-
     }
-
 }
