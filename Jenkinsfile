@@ -14,7 +14,7 @@ pipeline {
       }
       stage('Check if docker is running'){
         steps {
-          sh 'DOCKER_CONTAINER = docker ps -aq -f name="pet_clinic"'
+          sh 'DOCKER_CONTAINER=`docker ps -aq --filter=name=pet_clinic`'
         }
       }
       // stage('Docker') {
