@@ -19,7 +19,7 @@ pipeline {
       }
       stage('Stop docker if running'){
         when {
-          environment name: 'DOCKER_CONTAINER', value: '*'
+          expression { DOCKER_CONTAINER != "" }
         }
         steps {
           sh 'echo "Hello"'
