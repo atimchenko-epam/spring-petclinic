@@ -26,7 +26,9 @@ pipeline {
             args '-v /var/lib/jenkins/workspace/Pet-testing/target:/opt -p 8080:8080 java -jar /opt/spring-petclinic-2.0.0.BUILD-SNAPSHOT.jar'
           }
         }
+        steps {
 
+        }
       }
     }
 }
