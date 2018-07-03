@@ -17,6 +17,14 @@ pipeline {
           sh 'DOCKER_CONTAINER=`docker ps -aq --filter=name=pet_clinic`'
         }
       }
+      stage('Stop docker if running'){
+        when {
+          environment name: 'DOCKER_CONTAINER', value: '.*'
+        }
+        steps {
+          sh 'echo "Hello"'
+        }
+      }
       // stage('Docker') {
       //
       //   steps {
