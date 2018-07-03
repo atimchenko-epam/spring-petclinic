@@ -15,6 +15,7 @@ pipeline {
       stage('LS'){
         steps {
           sh 'ls'
+          sh 'pwd'
         }
       }
       stage('Docker') {
