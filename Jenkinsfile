@@ -27,7 +27,7 @@ pipeline {
         //   }
         // }
         steps {
-            docker run -d -v /var/lib/jenkins/workspace/Pet-testing/target:/opt -p 8080:8080 openjdk:8 java -jar /opt/spring-petclinic-2.0.0.BUILD-SNAPSHOT.jar
+            sh "docker run -d -v /var/lib/jenkins/workspace/Pet-testing/target:/opt -p 8080:8080 openjdk:8 java -jar /opt/spring-petclinic-2.0.0.BUILD-SNAPSHOT.jar"
         }
       }
     }
