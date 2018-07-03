@@ -27,7 +27,7 @@ pipeline {
           }
         }
         steps {
-          sh 'java -version'
+          sh 'java -jar /opt/spring-petclinic-2.0.0.BUILD-SNAPSHOT.jar'
         }
       }
     }
