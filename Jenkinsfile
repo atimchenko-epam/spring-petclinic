@@ -15,6 +15,7 @@ pipeline {
       stage('Stop docker'){
         steps {
           sh 'docker stop pet_clinic'
+          sh 'docker rm pet_clinic'
         }
       }
       stage('Docker') {
