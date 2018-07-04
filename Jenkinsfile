@@ -14,8 +14,14 @@ pipeline {
       }
       stage('Stop docker'){
         steps {
-          sh 'docker stop pet_clinic'
-          sh 'docker rm pet_clinic'
+          script {
+            try {
+              sh 'docker stop pet_clinic'
+              sh 'docker rm pet_clinic'
+            } catch (e) {
+              echo 'Things happens'
+            }
+          }
         }
       }
       stage('Docker') {
